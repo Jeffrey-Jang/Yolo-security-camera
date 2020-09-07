@@ -43,6 +43,16 @@ python3 convert.py yolov3-tiny.cfg yolov3-tiny.weights model_data/yolo-tiny.h5
 
 #### Simple script
 
-* run: `securityCam.sh true`
+* run: `./securityCam.sh true`
 
-* stop: `securityCam.sh false`
+* stop: `./securityCam.sh false`
+
+## Result
+
+RPi send E-mail when detact Person.
+
+![E-mail](./doc/scan.png "capture")
+
+![picture](./doc/result_20190602_150326.png "picture")
+
+when person detacted, RPi keep capture for 30 mins.
