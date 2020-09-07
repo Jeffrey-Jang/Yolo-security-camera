@@ -1,18 +1,19 @@
 #!/bin/bash
+CAMHOMEPATH=/home/pi/Yolo-security-camera
 TDATE=`date '+%y%m%d_%H%M%S'`
-LOGPATH=/home/pi/skills/log
+LOGPATH=${CAMHOMEPATH}/log
 LOGFILE=${LOGPATH}/log_SecurityCam.log
-CAMPROC=/home/pi/skills/record
+CAMPROC=${CAMHOMEPATH}/record
 OUTPATH=${CAMPROC}/${TDATE}
 
 
 if [ $1 = "true" ]
 then
-	cd /home/pi/keras-yolo3
+	cd ${CAMHOMEPATH}
     mkdir ${OUTPATH}
     mkdir ${OUTPATH}/detacted
     echo "[`date '+%y/%m/%d %H:%M:%S'`] ON" >> ${LOGFILE}
-    python3 /home/pi/keras-yolo3/yolo_video.py --input /dev/video0 --output ${OUTPATH}/ >> ${LOGFILE} 2>&1
+    python3 ${CAMHOMEPATH}/yolo_video.py --input /dev/video0 --output ${OUTPATH}/ >> ${LOGFILE} 2>&1
 
 elif [ $1 = "false" ]
 then
